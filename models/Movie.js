@@ -3,10 +3,12 @@ import mongoose from "mongoose";
 const movieSchema = mongoose.Schema({
   title: { type: String, required: true, trim: true },
   releaseYear: { type: Date, required: true },
-  students: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Actor",
-  },
+  actors: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Actor",
+    },
+  ],
 });
 
 const Movie = mongoose.model("Movie", movieSchema);
